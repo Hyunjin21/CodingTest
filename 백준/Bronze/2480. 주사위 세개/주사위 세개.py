@@ -12,9 +12,4 @@ elif c==a and c!=b:
     money = 1000 + c*100
     print(money)
 else:
-    if a>b and a>c:
-        print(a*100)
-    if b>a and b>c:
-        print(b*100)
-    if c>a and c>b:
-        print(c*100)
+    print(max(a,b,c)*100)
