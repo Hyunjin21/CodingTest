@@ -3,3 +3,8 @@ def solution(arr):
     for i in range(len(arr)):
         answer += arr[i]
     return answer
+
+'''
+def solution(arr):
+    return ''.join(arr)
+'''
