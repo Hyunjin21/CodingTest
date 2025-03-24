@@ -1,21 +1,17 @@
 function solution(arr, queries) {
     var answer = [];
     for (let i=0; i<queries.length; i++){
-        const [s, e, k] = queries[i];
+        var s = queries[i][0];
+        var e = queries[i][1];
+        var k = queries[i][2];
+        let minValue = Infinity;
         
-        var minArr = [];
         for (let j = s; j <= e; j++){
-            if(arr[j] > k){
-                minArr.push(arr[j]);
+            if(arr[j] > k && arr[j] < minValue){
+                minValue = arr[j];
             }
         }
-        
-        if (minArr.length == 0){
-            answer.push(-1);
-        } else {
-            answer.push(Math.min(...minArr));
-        }
-
+        answer.push(minValue === Infinity ? -1 : minValue);
     }
     return answer;
 
