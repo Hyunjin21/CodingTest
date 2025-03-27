@@ -6,8 +6,9 @@ function solution(l, r) {
             answer.push(i);
         } 
     }
-    if (answer == ''){
-        answer.push(-1);
-    }
-    return answer;
+    return answer.length === 0 ? [-1] : answer;
+    // if (answer == ''){
+    //     answer.push(-1);
+    // }
+    // return answer;
 }
