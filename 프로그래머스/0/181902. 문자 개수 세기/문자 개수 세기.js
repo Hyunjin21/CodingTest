@@ -3,7 +3,7 @@ function solution(my_string) {
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     for (let i = 0; i < my_string.length; i++) {
         const letter = alphabet.indexOf(my_string[i]);
-        if (letter !== -1) {
+        if (letter !== -1) { // 찾는 문자가 없을 경우 -1 반환
             answer[letter] += 1;
         }
     }
