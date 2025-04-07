@@ -13,18 +13,17 @@ function solution(arr) {
             } else {
                 next = arr[i];
             }
-            newArr[i] = next;
+            
             if (next !== arr[i]){
                 changed = true;
             }
+            newArr.push(next);
         }
         if (!changed){
             break;
         } 
-        for (let j = 0; j<arr.length; j++){
-            arr[j] = newArr[j];
-        }
-        answer += 1;
+        arr = newArr;
+        answer++;
     }
     return answer;
 }
