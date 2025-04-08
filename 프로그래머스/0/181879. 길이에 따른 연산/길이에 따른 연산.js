@@ -7,8 +7,8 @@ function solution(num_list) {
         }
         return sum;
     } else {
-        var multi = num_list[0];
-        for (let j = 1; j<len; j++){
+        var multi = 1;
+        for (let j = 0; j<len; j++){
             multi *= num_list[j];
         }
         return multi;
