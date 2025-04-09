@@ -7,4 +7,5 @@ function solution(myString, pat) {
             return answer;
         }
     }
+    // return myString.slice(0, myString.lastIndexOf(pat) + pat.length);
 }
