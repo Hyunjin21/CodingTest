@@ -1,35 +1,34 @@
 function solution(strArr) {
-    var answer = 0;
-    var max = 0;
-    for(let i=0; i<strArr.length; i++){
-        if(strArr[i].length > max){
-            max = strArr[i].length;   
+    let arr = Array(31).fill(0); 
+    for (let i = 0; i < strArr.length; i++) {
+        let len = strArr[i].length; 
+        arr[len]++; 
+    }
+    let max = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i]; 
         }
     }
-    for(let j=1; j<=max; j++){
-        var count = 0;
-        for(let k=0; k<strArr.length; k++){
-            if(strArr[k].length === j){
-                count++;
-            }
-        }
-        if (count > answer){
-            answer = count;
-        }
-    }
-    return answer;
+    return max;
+    
     // 1번 풀이
     // var answer = 0;
-    // var count = [];
-    // for(let i = 0; i<strArr.length; i++){
-    //     var num = strArr[i].length;
-    //     if (count[num] == undefined){
-    //         count[num] = 1;
-    //     } else {
-    //         count[num]++;
+    // var max = 0;
+    // for(let i=0; i<strArr.length; i++){
+    //     if(strArr[i].length > max){
+    //         max = strArr[i].length;   
     //     }
-    //     if(count[num] > answer){
-    //         answer = count[num];
+    // }
+    // for(let j=1; j<=max; j++){
+    //     var count = 0;
+    //     for(let k=0; k<strArr.length; k++){
+    //         if(strArr[k].length === j){
+    //             count++;
+    //         }
+    //     }
+    //     if (count > answer){
+    //         answer = count;
     //     }
     // }
     // return answer;
