@@ -18,6 +18,7 @@ function solution(strArr) {
         }
     }
     return answer;
+    // 1번 풀이
     // var answer = 0;
     // var count = [];
     // for(let i = 0; i<strArr.length; i++){
@@ -32,4 +33,10 @@ function solution(strArr) {
     //     }
     // }
     // return answer;
+    
+    // 2번풀이
+    // let arr = Array(31).fill(0);
+    // for (let s of strArr) arr[s.length]++
+    // return Math.max(...arr);
+
 }
