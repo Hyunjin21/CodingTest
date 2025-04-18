@@ -6,4 +6,5 @@ function solution(arr, delete_list) {
         }
     }
     return answer;
+    // return arr.filter((n) => !delete_list.includes(n));
 }
