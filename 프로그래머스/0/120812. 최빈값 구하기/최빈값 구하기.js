@@ -9,10 +9,10 @@ function solution(array) {
     for(let key in count){
         if(count[key] > maxCount){
             maxCount = count[key];
-            maxNumbers = [Number(key)];
+            maxNumbers = [key];
         } else if (count[key] == maxCount){
-            maxNumbers.push(Number(key));
+            maxNumbers.push(key);
         }
     }
-    return maxNumbers.length === 1 ? maxNumbers[0] : -1;
+    return maxNumbers.length === 1 ? Number(maxNumbers[0]) : -1;
 }
