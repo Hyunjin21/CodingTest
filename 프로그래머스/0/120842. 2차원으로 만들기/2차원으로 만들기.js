@@ -1,12 +1,7 @@
 function solution(num_list, n) {
-    let answer = [];
-    for(let i=0; i<num_list.length; ){
-        let result = [];
-        for(let j=0; j<n; j++){
-            result.push(num_list[i]);
-            i++;
-        }
-        answer.push(result);
+    var answer = [];
+    for(let i=0; i<num_list.length; i+=n){
+        answer.push(num_list.slice(i,i+n));
     }
     return answer;
 }
