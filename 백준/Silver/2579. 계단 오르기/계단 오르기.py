@@ -4,7 +4,7 @@ for _ in range(N):
     num = int(input())
     s.append(num)
 
-dp = [0] * (N+1)
+dp = [0] * N
 if N >= 1:
     dp[0] = s[0]
 if N >= 2:
