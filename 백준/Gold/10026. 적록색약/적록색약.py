@@ -3,9 +3,8 @@ N = int(input())
 paint = [list(input()) for _ in range(N)]
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
-vistied = []
 
-def bfs(x, y):
+def bfs(x, y, visited):
     queue = deque()
     queue.append((x, y))
     visited[y][x] = True
@@ -21,13 +20,12 @@ def bfs(x, y):
                     queue.append((nx, ny))
 
 def count(paint):
-    global visited
     visited = [[False] * N for _ in range(N)]
     cnt = 0
     for y in range(N):
         for x in range(N):
             if not visited[y][x]:
-                bfs(x, y)
+                bfs(x, y, visited)
                 cnt += 1
     return cnt
 
@@ -39,4 +37,7 @@ for y in range(N):
     for x in range(N):
         if paint[y][x] == 'R':
             paint[y][x] = 'G'
+
 print(count(paint))
+
+
