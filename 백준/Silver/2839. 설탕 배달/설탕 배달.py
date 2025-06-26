@@ -1,12 +1,14 @@
 N = int(input())
-bag = 0
+dp = [5001]*(N+1)
+dp[0] = 0
 
-while N >= 0:
-    if N % 5 == 0:
-        bag += N // 5
-        print(bag)
-        break
-    N -= 3
-    bag += 1
-else:
+for i in range(1, N+1):
+    if i >= 3:
+        dp[i] = min(dp[i], dp[i-3]+1)
+    if i >= 5:
+        dp[i] = min(dp[i], dp[i-5]+1)
+
+if dp[N] == 5001:
     print(-1)
+else:
+    print(dp[N])
