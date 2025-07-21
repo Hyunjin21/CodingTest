@@ -7,7 +7,8 @@ for _ in range(T):
     dic = {}
     for _ in range(n):
         name, kind = input().split()
-        if kind in dic.keys():
+
+        if kind in dic:
             dic[kind] += 1
         else:
             dic[kind] = 1
@@ -15,6 +16,5 @@ for _ in range(T):
     cnt = 1
     for i in dic:
         cnt *= (dic[i] + 1)
-            
+
     print(cnt-1)
-        
