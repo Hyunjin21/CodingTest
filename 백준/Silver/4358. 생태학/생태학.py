@@ -14,7 +14,6 @@ while True:
     else:
         dic[tree] = 1
 
-result = sorted(dic.items())
-for key, value in result:
+for key, value in sorted(dic.items()):
     percentage = (value/total)*100
     print(f"{key} {percentage:.4f}")
