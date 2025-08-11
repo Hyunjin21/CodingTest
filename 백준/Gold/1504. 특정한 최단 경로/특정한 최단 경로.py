@@ -23,11 +23,11 @@ def dijkstra(start):
         dist, now = heapq.heappop(q)
         if distance[now] < dist:
             continue
-        for i in graph[now]:
-            cost = dist + i[1]
-            if cost < distance[i[0]]:
-                distance[i[0]] = cost
-                heapq.heappush(q, (cost, i[0]))
+        for next_node, weight in graph[now]:
+            new_dist = dist + weight
+            if new_dist < distance[next_node]:
+                distance[next_node] = new_dist
+                heapq.heappush(q, (new_dist, next_node))
 
     return distance
 
