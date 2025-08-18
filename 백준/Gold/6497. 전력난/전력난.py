@@ -1,4 +1,5 @@
 import sys
+sys.setrecursionlimit(1000000)
 input = sys.stdin.readline
 
 def find(x):
@@ -17,19 +18,19 @@ while True:
     m, n = map(int, input().split())
     if m == 0 and n == 0:
         break
-    
+    parent = list(range(m))    
+
     edges = []
-    total = 0
     for _ in range(n):
         x, y, z = map(int, input().split())
         edges.append((z, x, y))
-        total += z
     edges.sort()
-    
-    parent = list(range(m))
+
     cost = 0
     for z, x, y in edges:
-        if union(x, y):
+        if find(x) != find(y):
+            union(x, y)
+        else:
             cost += z
 
-    print(total-cost)
+    print(cost)
