@@ -1,13 +1,26 @@
 import sys
+sys.setrecursionlimit(1000000)
 input = sys.stdin.readline
 
-def w(c):
-    if c == '0':
-        return 0
-    if 'a' <= c <= 'z':
-        return ord(c) - ord('a') + 1
-    if 'A' <= c <= 'Z':
-        return ord(c) - ord('A') + 27
+N = int(input().strip())
+parent = list(range(N))
+edges = []
+total = 0
+for i in range(N):
+    row = input().strip()
+    for j in range(N):
+        ch = row[j]
+        if 'a' <= ch <= 'z':
+            weight = ord(ch) - ord('a') + 1
+        elif 'A' <= ch <= 'Z':
+            weight = ord(ch) - ord('A') + 27
+        else:
+            weight = 0
+
+        total += weight
+        if i != j and weight > 0:
+            edges.append((weight, i, j))
+edges.sort()
 
 def find(x):
     if parent[x] != x:
@@ -16,40 +29,20 @@ def find(x):
 
 def union(a, b):
     a, b = find(a), find(b)
-    if a == b:
-        return False
-    if size[a] < size[b]:
-        a, b = b, a
-    parent[b] = a
-    size[a] += size[b]
-    return True
+    if a < b:
+        parent[b] = a
+    else:
+        parent[a] = b
 
-N = int(input().strip())
-edges = []
-total = 0
-for i in range(N):
-    s = input().strip()
-    for j in range(N):
-        L = w(s[j])
-        total += L
-        if i != j and L > 0:
-            edges.append((L, i, j))
-
-edges.sort()
-
-parent = list(range(N))
-size = [1] * N
-
-cost = 0
+mst = 0
 cnt = 0
-for c, a, b in edges:
-    if union(a, b):
-        cost += c
+for cost, a, b in edges:
+    if find(a) != find(b):
+        union(a, b)
+        mst += cost
         cnt += 1
-        if cnt == N-1:
-            break
-        
-if cnt == N-1:
-    print(total-cost)
+
+if cnt == N - 1:
+    print(total - mst)
 else:
     print(-1)
