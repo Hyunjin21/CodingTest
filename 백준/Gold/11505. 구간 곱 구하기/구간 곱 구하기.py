@@ -1,10 +1,6 @@
 import sys
 input = sys.stdin.readline
 
-N, M, K = map(int, input().split())
-arr = [int(input()) for _ in range(N)]
-tree = [1] * (N * 4)
-
 def merge(x, y):
     return (x * y) % 1000000007
 
@@ -33,6 +29,10 @@ def update(start, end, idx, target, new_value):
     mid = (start + end) // 2
     tree[idx] = merge(update(start, mid, idx * 2, target, new_value), update(mid + 1, end, idx * 2 + 1, target, new_value))
     return tree[idx]
+
+N, M, K = map(int, input().split())
+arr = [int(input()) for _ in range(N)]
+tree = [1] * (N * 4)
 
 init(0, N - 1, 1)
 
