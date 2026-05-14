@@ -1,6 +1,6 @@
 def solution(angle):
     answer = 0
-    if angle > 0 and angle < 90:
+    if 0 < angle < 90:
         answer = 1
     elif angle == 90:
         answer = 2
